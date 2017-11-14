@@ -25,9 +25,11 @@ public class BondDeal {
   private BondDealType dealType;
 
   // количество бумаг, учавствующих в сделке
+  @Column(nullable = false)
   private int quantity;
 
   // цена сделки
+  @Column(nullable = false)
   private double price;
 
   public BondDeal() {
