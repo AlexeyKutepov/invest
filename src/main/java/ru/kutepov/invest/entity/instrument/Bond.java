@@ -21,13 +21,13 @@ public class Bond {
   private String isinCode;
 
   // Номинальная стоимость
-  private double nominalValue;
+  private Double nominalValue;
 
   // Рыночная стоимость
-  private double marketValue;
+  private Double marketValue;
 
   // НКД
-  private double accruedInterest;
+  private Double accruedInterest;
 
   // Валюта
   private String currency;
@@ -59,27 +59,27 @@ public class Bond {
     this.isinCode = isinCode;
   }
 
-  public double getNominalValue() {
+  public Double getNominalValue() {
     return nominalValue;
   }
 
-  public void setNominalValue(double nominalValue) {
+  public void setNominalValue(Double nominalValue) {
     this.nominalValue = nominalValue;
   }
 
-  public double getMarketValue() {
+  public Double getMarketValue() {
     return marketValue;
   }
 
-  public void setMarketValue(double marketValue) {
+  public void setMarketValue(Double marketValue) {
     this.marketValue = marketValue;
   }
 
-  public double getAccruedInterest() {
+  public Double getAccruedInterest() {
     return accruedInterest;
   }
 
-  public void setAccruedInterest(double accruedInterest) {
+  public void setAccruedInterest(Double accruedInterest) {
     this.accruedInterest = accruedInterest;
   }
 

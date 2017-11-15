@@ -1,11 +1,10 @@
 package ru.kutepov.invest.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 import ru.kutepov.invest.entity.instrument.Bond;
+import ru.kutepov.invest.processor.BondProcessor;
 import ru.kutepov.invest.repository.instrument.BondRepository;
 
 import java.util.List;
@@ -18,10 +17,16 @@ import java.util.List;
 public class BondController {
 
   private BondRepository bondRepository;
+  private BondProcessor bondProcessor;
 
   @Autowired
-  public BondController(BondRepository bondRepository) {
+  public void setBondRepository(BondRepository bondRepository) {
     this.bondRepository = bondRepository;
+  }
+
+  @Autowired
+  public void setBondProcessor(BondProcessor bondProcessor) {
+    this.bondProcessor = bondProcessor;
   }
 
   /**
@@ -43,5 +48,13 @@ public class BondController {
     return bondRepository.findOne(id);
   }
 
+  /**
+   * Обновление списка облигаций
+   */
+  @RequestMapping(value = "/update", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+  @ResponseStatus(value = HttpStatus.OK)
+  public void updateBonds() {
+    bondProcessor.process();
+  }
 
 }

@@ -16,6 +16,9 @@ public class Portfolio {
   @GeneratedValue(strategy= GenerationType.IDENTITY)
   private long id;
 
+  // Денежные средства
+  private double cash;
+
   // Список сделок по облигациям
   @OneToMany(targetEntity = BondDeal.class, fetch = FetchType.LAZY)
   @OrderBy("id")
@@ -30,6 +33,14 @@ public class Portfolio {
 
   public void setId(long id) {
     this.id = id;
+  }
+
+  public double getCash() {
+    return cash;
+  }
+
+  public void setCash(double cash) {
+    this.cash = cash;
   }
 
   public List<BondDeal> getBondDealList() {
