@@ -33,13 +33,21 @@ public class Bond {
   // Текущий купон
   private Double couponValue;
 
+  private Double couponPercent;
+
   // Валюта
   private String currency;
+
+  // Дата выплаты купона
+  @Temporal(TemporalType.DATE)
+  private Date nextCouponDate;
 
   // Дата погашения
   @Temporal(TemporalType.DATE)
   private Date maturityDate;
 
+  // Уровень облигации
+  private Integer level;
 
   public Bond() {
   }
@@ -100,6 +108,14 @@ public class Bond {
     this.couponValue = couponValue;
   }
 
+  public Double getCouponPercent() {
+    return couponPercent;
+  }
+
+  public void setCouponPercent(Double couponPercent) {
+    this.couponPercent = couponPercent;
+  }
+
   public String getCurrency() {
     return currency;
   }
@@ -108,11 +124,27 @@ public class Bond {
     this.currency = currency;
   }
 
+  public Date getNextCouponDate() {
+    return nextCouponDate;
+  }
+
+  public void setNextCouponDate(Date nextCouponDate) {
+    this.nextCouponDate = nextCouponDate;
+  }
+
   public Date getMaturityDate() {
     return maturityDate;
   }
 
   public void setMaturityDate(Date maturityDate) {
     this.maturityDate = maturityDate;
+  }
+
+  public Integer getLevel() {
+    return level;
+  }
+
+  public void setLevel(Integer level) {
+    this.level = level;
   }
 }

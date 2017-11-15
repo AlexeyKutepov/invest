@@ -69,8 +69,17 @@ public class BondProcessor {
             if (bondData.get(7) != null) {
               bond.setAccruedInterest(Double.valueOf(String.valueOf(bondData.get(7))));
             }
+            if (bondData.get(6) != null && !"0000-00-00".equals(bondData.get(6))) {
+              bond.setNextCouponDate(Date.valueOf(String.valueOf(bondData.get(6))));
+            }
             if (bondData.get(13) != null && !"0000-00-00".equals(bondData.get(13))) {
               bond.setMaturityDate(Date.valueOf(String.valueOf(bondData.get(13))));
+            }
+            if (bondData.get(36) != null) {
+              bond.setCouponPercent(Double.valueOf(String.valueOf(bondData.get(36))));
+            }
+            if (bondData.get(34) != null) {
+              bond.setLevel(Integer.valueOf(String.valueOf(bondData.get(34))));
             }
 
             bondRepository.save(bond);
