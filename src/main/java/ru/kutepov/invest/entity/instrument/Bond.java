@@ -1,6 +1,7 @@
 package ru.kutepov.invest.entity.instrument;
 
 import javax.persistence.*;
+import java.util.Date;
 
 /**
  * Облигация
@@ -29,8 +30,16 @@ public class Bond {
   // НКД
   private Double accruedInterest;
 
+  // Текущий купон
+  private Double couponValue;
+
   // Валюта
   private String currency;
+
+  // Дата погашения
+  @Temporal(TemporalType.DATE)
+  private Date maturityDate;
+
 
   public Bond() {
   }
@@ -83,11 +92,27 @@ public class Bond {
     this.accruedInterest = accruedInterest;
   }
 
+  public Double getCouponValue() {
+    return couponValue;
+  }
+
+  public void setCouponValue(Double couponValue) {
+    this.couponValue = couponValue;
+  }
+
   public String getCurrency() {
     return currency;
   }
 
   public void setCurrency(String currency) {
     this.currency = currency;
+  }
+
+  public Date getMaturityDate() {
+    return maturityDate;
+  }
+
+  public void setMaturityDate(Date maturityDate) {
+    this.maturityDate = maturityDate;
   }
 }

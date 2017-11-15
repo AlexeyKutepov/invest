@@ -6,4 +6,7 @@ import ru.kutepov.invest.repository.BaseRepositoryCustom;
 /**
  * Репозиторий для работы с сущностью {@link Bond}
  */
-public interface BondRepository extends BaseRepositoryCustom<Bond, Long> {}
+public interface BondRepository extends BaseRepositoryCustom<Bond, Long> {
+
+  Bond findBondByIsinCode(String isinCode);
+}
